@@ -1,0 +1,234 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<!-- Add graphic-looks to controls -->
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Accordion?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10" gridLinesVisible="true">
+    <padding>
+        <Insets left="10" top="10" bottom="10" right="10"/>
+    </padding>
+    <!-- Controls -->
+    <Label text="Controls" style="-fx-border-color: teal; -fx-border-style: dashed; -fx-border-width: 3"
+           alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <font>
+            <Font name="A Jannat LT Bold" size="20"/>
+        </font>
+    </Label>
+
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <Button fx:id="clickedBtn" text="Click Me"
+                onAction="#onButtonClicked">
+            <graphic>
+                <ImageView>
+                    <Image url="@/toolbarButtonGraphics/general/TipOfTheDay24.gif"/>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Label fx:id="helloWorldLbl" text="Hello World!" textFill="teal"
+               wrapText="true">
+            <font>
+                <Font name="A Jannat LT Bold" size="12"/>
+            </font>
+            <graphic>
+                <ImageView>
+                    <Image url="@/toolbarButtonGraphics/general/Information24.gif"/>
+                </ImageView>
+            </graphic>
+        </Label>
+    </VBox>
+
+    <!-- TextFiled and PasswordFiled -->
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0" alignment="CENTER">
+        <Label text="TextFiled &amp; PasswordFiled "
+               style="-fx-border-width: 2; -fx-border-style: dashed; -fx-border-color: black"/>
+        <Label text="Please Enter email"/>
+        <TextField/>
+        <Label text="Please Enter password"/>
+        <PasswordField/>
+    </VBox>
+
+    <!-- Combobox -->
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="0" alignment="TOP_CENTER">
+        <Label text="Combobox" style="-fx-border-width: 2; -fx-border-style: dashed; -fx-border-color: black"/>
+        <ComboBox>
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Option 1"/>
+                    <String fx:value="Option 2"/>
+                    <String fx:value="Option 3"/>
+                    <String fx:value="Option 4"/>
+                    <String fx:value="Option 5"/>
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="Option 4"/>
+            </value>
+        </ComboBox>
+    </VBox>
+    <!-- RadioButton -->
+    <Label text="RadioButton"
+           style="-fx-border-color: teal; -fx-border-style: dashed; -fx-border-width: 3;" alignment="CENTER"
+           GridPane.rowIndex="0" GridPane.columnIndex="1">
+        <font>
+            <Font name="A Jannat LT Bold" size="20"/>
+        </font>
+    </Label>
+
+
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="1">
+        <Label text="RadioButton without Grouping"/>
+        <!-- RadioButton without Grouping -->
+        <RadioButton text="Red"/>
+        <RadioButton text="Green"/>
+        <RadioButton text="Blue"/>
+    </VBox>
+
+    <fx:define>
+        <ToggleGroup fx:id="colorToggleGroup"/>
+    </fx:define>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="1">
+        <!-- RadioButton with Grouping -->
+        <Label text="RadioButton with Grouping"/>
+        <RadioButton text="Red" toggleGroup="$colorToggleGroup"/>
+        <RadioButton text="Green" toggleGroup="$colorToggleGroup"/>
+        <RadioButton text="Blue" toggleGroup="$colorToggleGroup"/>
+    </VBox>
+
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="1" alignment="TOP_CENTER">
+        <Label text="ChoiceBox" style="-fx-border-width: 2; -fx-border-style: dashed; -fx-border-color: black"
+               alignment="CENTER"/>
+        <ChoiceBox>
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="cb 1"/>
+                    <String fx:value="cb 2"/>
+                    <String fx:value="cb 3"/>
+                    <String fx:value="cb 4"/>
+                    <String fx:value="cb 5"/>
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="cb 4"/>
+            </value>
+        </ChoiceBox>
+    </VBox>
+    <!-- Checkbox -->
+    <Label text="Checkbox"
+           style="-fx-border-color: teal; -fx-border-style: dashed; -fx-border-width: 3;" alignment="CENTER"
+           GridPane.rowIndex="0" GridPane.columnIndex="2">
+        <font>
+            <Font name="A Jannat LT Bold" size="20"/>
+        </font>
+    </Label>
+
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="2">
+        <!-- Single checkbox -->
+        <Label text="Single checkbox"/>
+        <CheckBox text="Our checkbox" indeterminate="true"/>
+    </VBox>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="2">
+        <!-- Group checkbox -->
+        <Label text="Group checkbox"/>
+        <CheckBox text="Red"/>
+        <CheckBox text="Green"/>
+        <CheckBox text="Blue"/>
+    </VBox>
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="2" alignment="CENTER">
+        <!-- Group checkbox -->
+        <Label text="Toggle Button"/>
+        <ToggleButton text="Red" prefWidth="90"/>
+        <ToggleButton text="Green" prefWidth="90"/>
+        <ToggleButton text="Blue" prefWidth="90"/>
+    </VBox>
+    <!-- Other Controls -->
+    <Label text="Other Controls"
+           style="-fx-border-color: teal; -fx-border-style: dashed; -fx-border-width: 3;" alignment="CENTER"
+           GridPane.rowIndex="0" GridPane.columnIndex="3">
+        <font>
+            <Font name="A Jannat LT Bold" size="20"/>
+        </font>
+    </Label>
+    <!-- Slider -->
+    <VBox GridPane.rowIndex="1" GridPane.columnIndex="3">
+        <Label text="Slider"/>
+        <Slider min="0" max="100" showTickLabels="true" showTickMarks="true" minorTickCount="2" snapToTicks="true"/>
+    </VBox>
+
+    <!-- Spinner -->
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="3">
+        <Label text="Spinner"/>
+        <Spinner min="0" max="100" editable="true" initialValue="52"/>
+    </VBox>
+
+    <!-- Color and Date picker -->
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="3">
+        <Label text="ColorPicker &amp; DatePicker "/>
+        <ColorPicker/>
+        <DatePicker/>
+    </VBox>
+
+    <!-- TitledPane -->
+    <Label text="Titled Pan"
+           style="-fx-border-color: teal; -fx-border-style: dashed; -fx-border-width: 3;" alignment="CENTER"
+           GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="4"
+           GridPane.halignment="CENTER">
+        <font>
+            <Font name="A Jannat LT Bold" size="20"/>
+        </font>
+    </Label>
+    <VBox GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="4" alignment="CENTER">
+        <Label text="Single Titled Pane"
+               style="-fx-border-color: black; -fx-border-style: dashed; -fx-border-width: 2;"/>
+        <TitledPane text="Ahmed Saber">
+            <Label text="Software Engineering"/>
+        </TitledPane>
+    </VBox>
+
+    <Label text="Single Titled Pane" GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER"
+           style="-fx-border-color: black; -fx-border-style: dashed; -fx-border-width: 2;"/>
+
+    <HBox GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="4" alignment="CENTER" >
+
+        <Accordion expandedPane="$tp1">
+            <panes>
+                <TitledPane fx:id="tp1" text="Ahmed Saber">
+                    <Label text="Software Engineering"/>
+                </TitledPane>
+                <TitledPane text="Age">
+                    <Label text="24 Years old."/>
+                </TitledPane>
+                <TitledPane text="Location">
+                    <Label text="Cairo, Egypt"/>
+                </TitledPane>
+                <TitledPane text="Hobbies">
+                    <Label text="Programming, Gaming"/>
+                </TitledPane>
+            </panes>
+        </Accordion>
+    </HBox>
+
+</GridPane>
